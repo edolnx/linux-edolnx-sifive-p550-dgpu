@@ -1,0 +1,39 @@
+From a20f3cc95dac266a3d97914945e3ac004c3f181d Mon Sep 17 00:00:00 2001
+From: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
+Date: Tue, 3 Dec 2024 15:48:49 +0530
+Subject: [PATCH] riscv: dts: hifive-premier-p550: Enable I2C1
+
+Enabed I2C1. No slave is connected to I2C1 onboard.
+However, user can connect the slave device to J21 connector present
+on Carrier board.
+
+Signed-off-by: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
+---
+ arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts b/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
+index 8cdc9fdc9e34..5ed143a980f3 100644
+--- a/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
++++ b/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
+@@ -553,7 +553,7 @@ d0_codec0_endpoint: endpoint {
+ 
+ &d0_i2c1 {
+ 	/* pin header mux with GPIO 46,47 */
+-	status = "disabled";
++	status = "okay";
+ };
+ 
+ &d0_i2c2 {
+@@ -702,7 +702,7 @@ &pinctrl {
+ 	pinctrl-0 = <&pinctrl_gpio6_default &pinctrl_gpio7_default &pinctrl_gpio8_default &pinctrl_gpio9_default
+ 			&pinctrl_gpio10_default &pinctrl_gpio17_default &pinctrl_gpio35_default &pinctrl_gpio36_default
+ 			&pinctrl_gpio37_default &pinctrl_gpio38_default &pinctrl_gpio39_default &pinctrl_gpio40_default
+-			&pinctrl_gpio41_default &pinctrl_gpio46_default &pinctrl_gpio52_default
++			&pinctrl_gpio41_default &pinctrl_gpio52_default
+ 			&pinctrl_gpio53_default &pinctrl_gpio64_default &pinctrl_gpio65_default &pinctrl_gpio66_default
+ 			&pinctrl_gpio67_default &pinctrl_gpio70_default &pinctrl_gpio73_default &pinctrl_gpio83_default
+ 			&pinctrl_gpio86_default &pinctrl_gpio87_default &pinctrl_gpio92_default &pinctrl_gpio93_default>;
+-- 
+2.25.1
+
